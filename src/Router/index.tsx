@@ -9,7 +9,6 @@ import { Register } from '../view/pages/Register';
 import { Dashboard } from '../view/pages/Dashboard';
 
 export function Router() {
-
   return (
     <BrowserRouter>
       <Routes>
