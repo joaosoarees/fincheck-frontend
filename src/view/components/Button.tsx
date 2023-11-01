@@ -1,12 +1,16 @@
 import { ComponentProps } from "react";
 import { cn } from "../../app/utils/cn";
+import { Spinner } from "./Spinner";
 
-interface ButtonProps extends ComponentProps<'button'> { }
+interface ButtonProps extends ComponentProps<'button'> {
+  isLoading?: boolean;
+}
 
-export function Button({ className, ...props}: ButtonProps) {
+export function Button({ className, isLoading, disabled, children, ...props}: ButtonProps) {
   return (
     <button
       {...props}
+      disabled={disabled || isLoading}
       className={cn(
         `
           bg-teal-900
@@ -20,9 +24,15 @@ export function Button({ className, ...props}: ButtonProps) {
           disabled:text-gray-400
           disabled:cursor-not-allowed
           transition-all
+          flex
+          items-center
+          justify-center
         `,
         className
       )}
-    />
+    >
+      {isLoading && <Spinner className="w-6 h-6" />}
+      {!isLoading && children}
+    </button>
   );
 }
