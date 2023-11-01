@@ -3,13 +3,17 @@ import { Toaster } from 'react-hot-toast';
 
 import { Router } from "./Router";
 
+import { AuthProvider } from './app/contexts/AuthContext';
+
 export function App() {
   const queryClientProvider = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClientProvider}>
-      <Router />
-      <Toaster />
+      <AuthProvider>
+        <Router />
+        <Toaster />
+      </AuthProvider>
     </QueryClientProvider>
   )
 }
