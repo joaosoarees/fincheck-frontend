@@ -55,5 +55,3 @@ export function AuthProvider({ children }: { children: React.ReactNode}) {
     </AuthContext.Provider>
   );
 }
-
-// [FRONT] Fluxo de autenticação e animações com Headless UI - 01:14:32
