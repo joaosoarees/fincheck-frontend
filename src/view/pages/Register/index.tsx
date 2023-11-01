@@ -30,6 +30,7 @@ export function Register() {
       <form
         onSubmit={handleSubmit}
         className="mt-[60px] flex flex-col gap-4"
+        noValidate
       >
         <Input
           placeholder="Nome"

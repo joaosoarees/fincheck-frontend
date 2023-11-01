@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 
 import { localStorageKeys } from "../config/localStorageKeys";
 import { usersService } from "../services/usersService";
+import { LaunchScreen } from "../../view/components/LaunchScreen";
 
 interface AuthContextValue {
   signedIn: boolean;
@@ -30,10 +31,10 @@ export function AuthProvider({ children }: { children: React.ReactNode}) {
     setSignedIn(false);
   }, []);
 
-  const { isError } = useQuery({
+  const { isError, isFetching, isSuccess } = useQuery({
     queryKey: ['users', 'me'],
     queryFn: () => usersService.me(),
-    enabled: signedIn
+    enabled: signedIn,
   });
 
   useEffect(() => {
@@ -44,10 +45,15 @@ export function AuthProvider({ children }: { children: React.ReactNode}) {
   }, [isError, signout]);
 
   return (
-    <AuthContext.Provider value={{ signedIn, signin, signout }}>
-      {children}
+    <AuthContext.Provider value={{
+      signedIn: isSuccess && signedIn,
+      signin,
+      signout
+    }}>
+      <LaunchScreen isLoading={isFetching} />
+      {!isFetching && children}
     </AuthContext.Provider>
   );
 }
 
-
+// [FRONT] Fluxo de autenticação e animações com Headless UI - 01:14:32
