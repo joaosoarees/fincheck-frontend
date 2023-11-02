@@ -31,7 +31,7 @@ export function AuthProvider({ children }: { children: React.ReactNode}) {
     setSignedIn(false);
   }, []);
 
-  const { isError, isFetching, isSuccess } = useQuery({
+  const { isError, isFetching: isLoading, isSuccess } = useQuery({
     queryKey: ['users', 'me'],
     queryFn: () => usersService.me(),
     enabled: signedIn,
@@ -50,8 +50,8 @@ export function AuthProvider({ children }: { children: React.ReactNode}) {
       signin,
       signout
     }}>
-      <LaunchScreen isLoading={isFetching} />
-      {!isFetching && children}
+      <LaunchScreen isLoading={isLoading} />
+      {!isLoading && children}
     </AuthContext.Provider>
   );
 }
