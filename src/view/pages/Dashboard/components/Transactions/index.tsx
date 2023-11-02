@@ -7,6 +7,7 @@ import { TransactionsIcon } from "../../../../components/icons/TransactionsIcon"
 import { FilterIcon } from "../../../../components/icons/FilterIcon";
 
 import { SliderOption } from "./SliderOption";
+import { SliderNavigation } from "./SliderNavigation";
 
 export function Transactions() {
   return (
@@ -28,17 +29,19 @@ export function Transactions() {
           </button>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6 relative">
           <Swiper
             slidesPerView={3}
             centeredSlides
           >
-            {MONTHS.map(month => (
+            <SliderNavigation />
+            {MONTHS.map((month, index) => (
               <SwiperSlide key={month}>
                 {({ isActive }) => (
                   <SliderOption
                     isActive={isActive}
                     month={month}
+                    index={index}
                   />
                 )}
               </SwiperSlide>
