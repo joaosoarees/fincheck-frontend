@@ -1,6 +1,6 @@
 import { useSwiper } from 'swiper/react';
 
-import { cn } from '../../../../../app/utils/cn';
+import { cn } from '@app/utils/cn';
 
 interface ISliderOptionProps {
   isActive: boolean;

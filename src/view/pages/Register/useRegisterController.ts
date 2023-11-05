@@ -5,9 +5,8 @@ import toast from 'react-hot-toast';
 import { z } from 'zod';
 
 import { useAuth } from '@app/hooks/useAuth';
-
-import { authService } from '../../../app/services/authService';
-import { ISignUpParams } from '../../../app/services/authService/signup';
+import { authService } from '@app/services/authService';
+import { ISignUpParams } from '@app/services/authService/signup';
 
 const schema = z.object({
   name: z.string().min(1, 'Nome é obrigatório.'),

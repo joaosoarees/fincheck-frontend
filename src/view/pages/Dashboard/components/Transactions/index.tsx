@@ -1,11 +1,11 @@
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { MONTHS } from '../../../../../app/config/constants';
-import { formatCurrency } from '../../../../../app/utils/formatCurrency';
-import { CategoryIcon } from '../../../../components/icons/categories/CategoryIcon';
-import { FilterIcon } from '../../../../components/icons/FilterIcon';
-import { TransactionsIcon } from '../../../../components/icons/TransactionsIcon';
+import { MONTHS } from '@app/config/constants';
+import { formatCurrency } from '@app/utils/formatCurrency';
+import { CategoryIcon } from '@view/components/icons/categories/CategoryIcon';
+import { FilterIcon } from '@view/components/icons/FilterIcon';
+import { TransactionsIcon } from '@view/components/icons/TransactionsIcon';
 
 import { SliderNavigation } from './SliderNavigation';
 import { SliderOption } from './SliderOption';

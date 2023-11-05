@@ -5,9 +5,8 @@ import toast from 'react-hot-toast';
 import { z } from 'zod';
 
 import { useAuth } from '@app/hooks/useAuth';
-
-import { authService } from '../../../app/services/authService';
-import { ISignInParams } from '../../../app/services/authService/signin';
+import { authService } from '@app/services/authService';
+import { ISignInParams } from '@app/services/authService/signin';
 
 const schema = z.object({
   email: z

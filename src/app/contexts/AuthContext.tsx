@@ -9,7 +9,8 @@ import {
 } from 'react';
 import toast from 'react-hot-toast';
 
-import { LaunchScreen } from '../../view/components/LaunchScreen';
+import { LaunchScreen } from '@view/components/LaunchScreen';
+
 import { localStorageKeys } from '../config/localStorageKeys';
 import { usersService } from '../services/usersService';
 
