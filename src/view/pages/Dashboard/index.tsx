@@ -1,7 +1,8 @@
-import { Logo } from "../../components/Logo";
-import { UserMenu } from "../../components/UserMenu";
-import { Accounts } from "./components/Accounts";
-import { Transactions } from "./components/Transactions";
+import { Logo } from '../../components/Logo';
+import { UserMenu } from '../../components/UserMenu';
+
+import { Accounts } from './components/Accounts';
+import { Transactions } from './components/Transactions';
 
 export function Dashboard() {
   return (

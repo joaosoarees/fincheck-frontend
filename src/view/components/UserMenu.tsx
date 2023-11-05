@@ -5,5 +5,5 @@ export function UserMenu() {
         JS
       </span>
     </div>
-  )
+  );
 }

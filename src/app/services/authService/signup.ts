@@ -1,17 +1,20 @@
-import { httpClient } from "../httpClient";
+import { httpClient } from '../httpClient';
 
-export interface SignUpParams {
+export interface ISignUpParams {
   name: string;
   email: string;
   password: string;
 }
 
-interface SignUpResponse {
+interface ISignUpResponse {
   accessToken: string;
 }
 
-export async function signup(params: SignUpParams) {
-  const { data } = await httpClient.post<SignUpResponse>('/auth/signup', params);
+export async function signup(params: ISignUpParams) {
+  const { data } = await httpClient.post<ISignUpResponse>(
+    '/auth/signup',
+    params,
+  );
 
   return data;
 }

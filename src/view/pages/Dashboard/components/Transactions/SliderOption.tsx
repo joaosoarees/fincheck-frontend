@@ -1,14 +1,14 @@
-import { useSwiper } from "swiper/react";
+import { useSwiper } from 'swiper/react';
 
-import { cn } from "../../../../../app/utils/cn";
+import { cn } from '../../../../../app/utils/cn';
 
-interface SliderOptionProps {
+interface ISliderOptionProps {
   isActive: boolean;
   month: string;
   index: number;
 }
 
-export function SliderOption({ isActive, month, index }: SliderOptionProps) {
+export function SliderOption({ isActive, month, index }: ISliderOptionProps) {
   const swiper = useSwiper();
 
   return (
@@ -18,7 +18,7 @@ export function SliderOption({ isActive, month, index }: SliderOptionProps) {
         `
           w-full rounded-full h-12 text-sm text-gray-800 tracking-[-0.5px] font-medium
         `,
-        isActive && 'bg-white'
+        isActive && 'bg-white',
       )}
     >
       {month}

@@ -1,10 +1,10 @@
-import { iconsMap } from "./iconsMap";
+import { iconsMap } from './iconsMap';
 
-interface BankAccountTypeIconProps {
+interface IBankAccountTypeIconProps {
   type: keyof typeof iconsMap;
 }
 
-export function BankAccountTypeIcon({ type }: BankAccountTypeIconProps) {
+export function BankAccountTypeIcon({ type }: IBankAccountTypeIconProps) {
   const Icon = iconsMap[type];
 
   return <Icon />;

@@ -1,11 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import { EyeIcon } from "../../../../components/icons/EyeIcon";
+import { EyeIcon } from '../../../../components/icons/EyeIcon';
 
-import { AccountCard } from "./AccountCard";
-import { SliderNavigation } from "./SliderNavigation";
-
+import { AccountCard } from './AccountCard';
+import { SliderNavigation } from './SliderNavigation';
 import { useAccountsController } from './useAccountsController';
 
 export function Accounts() {
@@ -31,14 +30,17 @@ export function Accounts() {
           <Swiper
             spaceBetween={16}
             slidesPerView={windowWidth >= 500 ? 2.1 : 1.2}
-            onSlideChange={swiper => {
+            onSlideChange={(swiper) => {
               setSliderState({
                 isBeginning: swiper.isBeginning,
-                isEnd: swiper.isEnd
+                isEnd: swiper.isEnd,
               });
             }}
           >
-            <div className="flex items-center justify-between mb-4" slot="container-start">
+            <div
+              className="flex items-center justify-between mb-4"
+              slot="container-start"
+            >
               <strong className="text-white tracking-[-1px] text-lg">
                 Minhas contas
               </strong>
@@ -79,5 +81,5 @@ export function Accounts() {
         </div>
       </div>
     </div>
-  )
+  );
 }

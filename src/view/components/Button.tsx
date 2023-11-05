@@ -1,12 +1,20 @@
-import { ComponentProps } from "react";
-import { cn } from "../../app/utils/cn";
-import { Spinner } from "./Spinner";
+import { ComponentProps } from 'react';
 
-interface ButtonProps extends ComponentProps<'button'> {
+import { cn } from '../../app/utils/cn';
+
+import { Spinner } from './Spinner';
+
+interface IButtonProps extends ComponentProps<'button'> {
   isLoading?: boolean;
 }
 
-export function Button({ className, isLoading, disabled, children, ...props}: ButtonProps) {
+export function Button({
+  className,
+  isLoading,
+  disabled,
+  children,
+  ...props
+}: IButtonProps) {
   return (
     <button
       {...props}
@@ -28,7 +36,7 @@ export function Button({ className, isLoading, disabled, children, ...props}: Bu
           items-center
           justify-center
         `,
-        className
+        className,
       )}
     >
       {isLoading && <Spinner className="w-6 h-6" />}

@@ -1,12 +1,15 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import { useSwiper } from "swiper/react";
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
+import { useSwiper } from 'swiper/react';
 
-interface SliderNavigationProps {
+interface ISliderNavigationProps {
   isBeginning: boolean;
   isEnd: boolean;
 }
 
-export function SliderNavigation({ isBeginning, isEnd }: SliderNavigationProps) {
+export function SliderNavigation({
+  isBeginning,
+  isEnd,
+}: ISliderNavigationProps) {
   const swiper = useSwiper();
 
   return (
@@ -26,5 +29,5 @@ export function SliderNavigation({ isBeginning, isEnd }: SliderNavigationProps) 
         <ChevronRightIcon className="text-white w-6 h-6" />
       </button>
     </div>
-  )
+  );
 }

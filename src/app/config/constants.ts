@@ -10,5 +10,5 @@ export const MONTHS = [
   'Set',
   'Out',
   'Nov',
-  'Dez'
+  'Dez',
 ];

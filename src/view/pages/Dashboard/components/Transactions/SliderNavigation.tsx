@@ -1,5 +1,5 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import { useSwiper } from "swiper/react";
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
+import { useSwiper } from 'swiper/react';
 
 export function SliderNavigation() {
   const swiper = useSwiper();
@@ -20,5 +20,5 @@ export function SliderNavigation() {
         <ChevronRightIcon className="w-6 h-6 text-gray-800" />
       </button>
     </>
-  )
+  );
 }

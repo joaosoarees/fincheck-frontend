@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export function useWindowWidth() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -12,7 +12,7 @@ export function useWindowWidth() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
-    }
+    };
   }, []);
 
   return width;

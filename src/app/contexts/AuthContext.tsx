@@ -1,22 +1,31 @@
-import { createContext, useCallback, useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import toast from "react-hot-toast";
+import { useQuery } from '@tanstack/react-query';
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import toast from 'react-hot-toast';
 
-import { localStorageKeys } from "../config/localStorageKeys";
-import { usersService } from "../services/usersService";
-import { LaunchScreen } from "../../view/components/LaunchScreen";
+import { LaunchScreen } from '../../view/components/LaunchScreen';
+import { localStorageKeys } from '../config/localStorageKeys';
+import { usersService } from '../services/usersService';
 
-interface AuthContextValue {
+interface IAuthContextValue {
   signedIn: boolean;
   signin: (accessToken: string) => void;
   signout: () => void;
 }
 
-export const AuthContext = createContext({} as AuthContextValue);
+export const AuthContext = createContext({} as IAuthContextValue);
 
-export function AuthProvider({ children }: { children: React.ReactNode}) {
+export function AuthProvider({ children }: { children: ReactNode }) {
   const [signedIn, setSignedIn] = useState<boolean>(() => {
-    const storedAccessToken = localStorage.getItem(localStorageKeys.ACCESS_TOKEN);
+    const storedAccessToken = localStorage.getItem(
+      localStorageKeys.ACCESS_TOKEN,
+    );
 
     return !!storedAccessToken;
   });
@@ -31,7 +40,11 @@ export function AuthProvider({ children }: { children: React.ReactNode}) {
     setSignedIn(false);
   }, []);
 
-  const { isError, isFetching: isLoading, isSuccess } = useQuery({
+  const {
+    isError,
+    isFetching: isLoading,
+    isSuccess,
+  } = useQuery({
     queryKey: ['users', 'me'],
     queryFn: () => usersService.me(),
     enabled: signedIn,
@@ -44,12 +57,17 @@ export function AuthProvider({ children }: { children: React.ReactNode}) {
     }
   }, [isError, signout]);
 
-  return (
-    <AuthContext.Provider value={{
+  const value = useMemo(
+    () => ({
       signedIn: isSuccess && signedIn,
       signin,
-      signout
-    }}>
+      signout,
+    }),
+    [isSuccess, signedIn, signin, signout],
+  );
+
+  return (
+    <AuthContext.Provider value={value}>
       <LaunchScreen isLoading={isLoading} />
       {!isLoading && children}
     </AuthContext.Provider>

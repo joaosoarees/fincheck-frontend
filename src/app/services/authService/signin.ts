@@ -1,16 +1,19 @@
-import { httpClient } from "../httpClient";
+import { httpClient } from '../httpClient';
 
-export interface SignInParams {
+export interface ISignInParams {
   email: string;
   password: string;
 }
 
-interface SignInResponse {
+interface ISignInResponse {
   accessToken: string;
 }
 
-export async function signin(params: SignInParams) {
-  const { data } = await httpClient.post<SignInResponse>('/auth/signin', params);
+export async function signin(params: ISignInParams) {
+  const { data } = await httpClient.post<ISignInResponse>(
+    '/auth/signin',
+    params,
+  );
 
   return data;
 }

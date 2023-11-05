@@ -1,15 +1,14 @@
-import { formatCurrency } from "../../../../../app/utils/formatCurrency";
+import { formatCurrency } from '../../../../../app/utils/formatCurrency';
+import { BankAccountTypeIcon } from '../../../../components/icons/BankAccountTypeIcon';
 
-import { BankAccountTypeIcon } from "../../../../components/icons/BankAccountTypeIcon";
-
-interface AccountCardProps {
+interface IAccountCardProps {
   color: string;
   name: string;
   balance: number;
   type: 'CHECKING' | 'INVESTMENT' | 'CASH';
 }
 
-export function AccountCard({ color, name, balance, type }: AccountCardProps) {
+export function AccountCard({ color, name, balance, type }: IAccountCardProps) {
   return (
     <div
       className="p-4 bg-white rounded-2xl h-[200px] flex flex-col justify-between border-b-4 border-teal-950"
@@ -27,9 +26,7 @@ export function AccountCard({ color, name, balance, type }: AccountCardProps) {
         <span className="text-gray-800 font-medium tracking-[-0.5px] block">
           {formatCurrency(balance)}
         </span>
-        <small className="text-gray-600 text-sm">
-          Saldo atual
-        </small>
+        <small className="text-gray-600 text-sm">Saldo atual</small>
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
-import { httpClient } from "../httpClient";
+import { httpClient } from '../httpClient';
 
-interface MeResponse {
+interface IMeResponse {
   name: string;
   email: string;
 }
 
 export async function me() {
-  const { data } = await httpClient.get<MeResponse>('/users/me');
+  const { data } = await httpClient.get<IMeResponse>('/users/me');
 
   return data;
 }

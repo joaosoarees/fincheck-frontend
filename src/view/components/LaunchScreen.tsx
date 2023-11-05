@@ -1,13 +1,13 @@
-import { Transition } from "@headlessui/react";
+import { Transition } from '@headlessui/react';
 
-import { Logo } from "./Logo";
-import { Spinner } from "./Spinner";
+import { Logo } from './Logo';
+import { Spinner } from './Spinner';
 
-interface LaunchScreenProps {
+interface ILaunchScreenProps {
   isLoading: boolean;
 }
 
-export function LaunchScreen({ isLoading }: LaunchScreenProps) {
+export function LaunchScreen({ isLoading }: ILaunchScreenProps) {
   return (
     <Transition
       show={isLoading}

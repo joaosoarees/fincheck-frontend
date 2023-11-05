@@ -1,15 +1,14 @@
-import { ChevronDownIcon } from "@radix-ui/react-icons";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { ChevronDownIcon } from '@radix-ui/react-icons';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { MONTHS } from "../../../../../app/config/constants";
-import { formatCurrency } from "../../../../../app/utils/formatCurrency";
+import { MONTHS } from '../../../../../app/config/constants';
+import { formatCurrency } from '../../../../../app/utils/formatCurrency';
+import { CategoryIcon } from '../../../../components/icons/categories/CategoryIcon';
+import { FilterIcon } from '../../../../components/icons/FilterIcon';
+import { TransactionsIcon } from '../../../../components/icons/TransactionsIcon';
 
-import { TransactionsIcon } from "../../../../components/icons/TransactionsIcon";
-import { FilterIcon } from "../../../../components/icons/FilterIcon";
-
-import { SliderOption } from "./SliderOption";
-import { SliderNavigation } from "./SliderNavigation";
-import { CategoryIcon } from "../../../../components/icons/categories/CategoryIcon";
+import { SliderNavigation } from './SliderNavigation';
+import { SliderOption } from './SliderOption';
 
 export function Transactions() {
   return (
@@ -32,10 +31,7 @@ export function Transactions() {
         </div>
 
         <div className="mt-6 relative">
-          <Swiper
-            slidesPerView={3}
-            centeredSlides
-          >
+          <Swiper slidesPerView={3} centeredSlides>
             <SliderNavigation />
             {MONTHS.map((month, index) => (
               <SwiperSlide key={month}>
@@ -61,9 +57,7 @@ export function Transactions() {
               <strong className="font-bold tracking-[-0.5px] block">
                 Almoço
               </strong>
-              <span className="text-sm text-gray-600">
-                11/02/2023
-              </span>
+              <span className="text-sm text-gray-600">11/02/2023</span>
             </div>
           </div>
 
@@ -80,9 +74,7 @@ export function Transactions() {
               <strong className="font-bold tracking-[-0.5px] block">
                 Salário
               </strong>
-              <span className="text-sm text-gray-600">
-                11/02/2023
-              </span>
+              <span className="text-sm text-gray-600">11/02/2023</span>
             </div>
           </div>
 
@@ -92,5 +84,5 @@ export function Transactions() {
         </div>
       </div>
     </div>
-  )
+  );
 }
