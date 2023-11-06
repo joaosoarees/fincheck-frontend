@@ -9,10 +9,9 @@ import {
 } from 'react';
 import toast from 'react-hot-toast';
 
+import { localStorageKeys } from '@app/config/localStorageKeys';
+import { usersService } from '@app/services/usersService';
 import { LaunchScreen } from '@view/components/LaunchScreen';
-
-import { localStorageKeys } from '../config/localStorageKeys';
-import { usersService } from '../services/usersService';
 
 interface IAuthContextValue {
   signedIn: boolean;
