@@ -8,14 +8,22 @@ import { CategoryIcon } from '@view/components/icons/categories/CategoryIcon';
 import { FilterIcon } from '@view/components/icons/FilterIcon';
 import { Spinner } from '@view/components/Spinner';
 
+import { FiltersModal } from './FiltersModal';
 import { SliderNavigation } from './SliderNavigation';
 import { SliderOption } from './SliderOption';
 import { TransactionTypeDropdown } from './TransactionTypeDropdown';
 import { useTransactionsController } from './useTransactionsController';
 
 export function Transactions() {
-  const { areValuesVisible, isInitialLoading, isLoading, transactions } =
-    useTransactionsController();
+  const {
+    areValuesVisible,
+    isInitialLoading,
+    isLoading,
+    transactions,
+    isFiltersModalOpen,
+    handleOpenFiltersModal,
+    handleCloseFiltersModal,
+  } = useTransactionsController();
 
   const hasTransactions = transactions.length > 0;
 
@@ -29,11 +37,16 @@ export function Transactions() {
 
       {!isInitialLoading && (
         <>
+          <FiltersModal
+            open={isFiltersModalOpen}
+            onClose={handleCloseFiltersModal}
+          />
+
           <header>
             <div className="flex items-center justify-between">
               <TransactionTypeDropdown />
 
-              <button>
+              <button onClick={handleOpenFiltersModal}>
                 <FilterIcon />
               </button>
             </div>
