@@ -22,7 +22,7 @@ function DropdownMenuRoot({ children }: IDropdownMenuProps) {
 
 function DropdownMenuTrigger({ children }: IDropdownMenuProps) {
   return (
-    <RadixDropdownMenu.Trigger className="outline-none">
+    <RadixDropdownMenu.Trigger className="outline-none" asChild>
       {children}
     </RadixDropdownMenu.Trigger>
   );
