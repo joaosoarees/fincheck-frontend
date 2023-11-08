@@ -1,6 +1,7 @@
 import { ExitIcon } from '@radix-ui/react-icons';
 
 import { useAuth } from '@app/hooks/useAuth';
+import { cn } from '@app/utils/cn';
 
 import { DropdownMenu } from './DropdownMenu';
 
@@ -10,7 +11,12 @@ export function UserMenu() {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
-        <div className="bg-teal-0 rounded-full w-12 h-12 flex items-center justify-center border border-teal-100">
+        <div
+          className={cn(
+            'bg-teal-0 rounded-full w-12 h-12 flex items-center',
+            'justify-center border border-teal-100 hover:cursor-pointer',
+          )}
+        >
           <span className="text-sm tracking-[0.5px] text-teal-900 font-medium">
             JS
           </span>
